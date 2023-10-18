@@ -9,16 +9,12 @@ import { Character } from '../../interfaces/character.interface';
 export class ListComponent {
     @Input()
     public characterList: Character[] = [
-        {
-            name: "Trunk",
-            power: 200_000
-        }
     ];
     @Output()
-    public onDelete: EventEmitter<number>=new EventEmitter();
+    public onDelete: EventEmitter<string> = new EventEmitter();
 
-    onDeleteCharacter(i: number): void {
-        this.onDelete.emit(i);
+    onDeleteCharacter(id: string): void {
+        this.onDelete.emit(id);
         // this.characterList.splice(i, 1);
     }
 }

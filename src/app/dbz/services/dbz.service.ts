@@ -26,10 +26,12 @@ export class DbzService {
     onNewCharacter(character: Character): void {
         const { name, power } = character;
 
-        this.characters.push({ name, power, id: uuidV4() })
+        this.characters.push({ ...character, id: uuidV4() })
 
     }
-    onDeleteCharacter(i: number): void {
-        this.characters.splice(i, 1);
+    onDeleteCharacter(id: string): void {
+        console.log(id);
+
+        this.characters.splice(this.characters.findIndex(c => c.id === id), 1);
     }
 }
