@@ -8,6 +8,16 @@ import { Character } from '../interfaces/character.interface';
 })
 
 export class MainPageComponent {
-    constructor(public dbzServer: DbzService) {}
+    constructor(private dbzService: DbzService) { }
 
+    get characters(): Character[] {
+        return this.dbzService.characters
+    }
+
+    onDeleteCharacter(id: string) {
+        this.dbzService.deleteCharacter(id)
+    }
+    onNewCharacter(char: Character) {
+        this.dbzService.addCharacter
+    }
 }
